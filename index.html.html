@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>520 情感故事书</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #ffeaea;
+      overflow-x: hidden;
+    }
+    .page {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+      box-sizing: border-box;
+      text-align: center;
+      transition: transform 0.6s ease;
+      background-size: cover;
+      background-position: center;
+    }
+    .page h1 {
+      font-size: 32px;
+      color: #d63384;
+      background: rgba(255,255,255,0.7);
+      padding: 10px;
+      border-radius: 10px;
+    }
+    .page p {
+      font-size: 18px;
+      color: #333;
+      line-height: 1.6;
+      max-width: 80%;
+      background: rgba(255,255,255,0.7);
+      padding: 15px;
+      border-radius: 10px;
+    }
+    #container {
+      display: flex;
+      width: 500vw;
+      transition: transform 0.6s ease;
+    }
+    .nav-btn {
+      position: fixed;
+      bottom: 30px;
+      background: #d63384;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      z-index: 999;
+    }
+    #prevBtn {
+      left: 20px;
+    }
+    #nextBtn {
+      right: 20px;
+    }
+    audio {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <audio controls autoplay loop>
+    <source src="bgm.ogg" type="audio/ogg">
+    Your browser does not support the audio element.
+  </audio>
+  <div id="container">
+    <div class="page" style="background-image: url('img1.jpg');">
+      <h1>💕《我们的小回忆》💕</h1>
+      <p>亲爱的叶公主，520快乐！这是我亲手做的，想把我们的回忆好好放出来。</p>
+    </div>
+    <div class="page" style="background-image: url('img2.jpg');">
+      <h1>初遇那天</h1>
+      <p>那天你穿着红色的外套，然后短发 ，一起去cityone 看电影，在这个之前我们去了 人间茶坊一起用餐，当下不太尴尬，才知道原来是你情商高，容易接话，笑容太甜了，我当下就没有心动，但是！我只到你是一个不错的 女孩！哇哈哈</p>
+    </div>
+    <div class="page" style="background-image: url('img3.jpg');">
+      <h1>特别瞬间</h1>
+      <p>有！每次都带我去吃好吃的宵夜，然后很常都送礼物给我。还有就是我觉得让你最不好受的就是 每一次回老家都感觉你很不开心，但是不要紧哈，以后遇到我们再看怎么解决。</p>
+    </div>
+    <div class="page" style="background-image: url('img4.jpg');">
+      <h1>想对你说的话</h1>
+      <p>谢谢你一直不离不弃，我知道我不是完美的，但我会更努力，感谢你每次都让我出去学习，然后都不怎么爱管我，这样的事前都称之为奇葩的爱。</p>
+    </div>
+    <div class="page" style="background-image: url('img5.jpg');">
+      <h1>💌 我的情书</h1>
+      <p>过好每一天 ，每一天都是新的一天 ， 都是开心的，未来的日子一起进步，有你的陪伴我是幸运的。</p>
+    </div>
+  </div>
+
+  <button id="prevBtn" class="nav-btn" onclick="prevPage()">⬅️ 上一页</button>
+  <button id="nextBtn" class="nav-btn" onclick="nextPage()">下一页 ➡️</button>
+
+  <script>
+    let currentPage = 0;
+    const container = document.getElementById("container");
+    const totalPages = container.children.length;
+
+    function updatePage() {
+      container.style.transform = `translateX(-${currentPage * 100}vw)`;
+    }
+
+    function nextPage() {
+      if (currentPage < totalPages - 1) {
+        currentPage++;
+        updatePage();
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 0) {
+        currentPage--;
+        updatePage();
+      }
+    }
+  </script>
+</body>
+</html>
